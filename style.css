@@ -41,6 +41,7 @@ body{
 }
 .header-icon{
     margin-right: 10px;
+    width: 1rem;
 }
 .flex-container-row-black-box {
     display: flex;
@@ -247,4 +248,9 @@ position: relative;
 }
 .main-box-child1-items:hover{
     color:#fc8019
+}
+.image-main-menu{
+    width:118px;
+    height:96px;
+    border-radius:6px;
 }
