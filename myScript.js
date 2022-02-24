@@ -12,3 +12,7 @@ function side_menu(){
     }
     
 }
+
+
+
+window.onload=side_menu;
