@@ -308,3 +308,15 @@ position: relative;
   .cart-price{
       width:20%;
   }
+  .cart-decrement{
+      cursor: pointer;
+  }
+  .cart-increment{
+      cursor: pointer;
+  }
+  .decrement-main-menu{
+      cursor: pointer;
+  }
+  .increment-main-menu{
+      cursor: pointer;
+  }
