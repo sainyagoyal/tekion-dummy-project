@@ -212,7 +212,7 @@ function itemQuantityChange(){
                     if($(pare).children().eq(1).text()== $(cartEle).children().eq(1).text()){
                         let final_ele=cartItem[j].nextElementSibling;
                         if(count<=0)
-                            $(final_ele).text("ADD");
+                            $(cartEle).remove();
                         else
                             $(final_ele).text(count);
                     }
