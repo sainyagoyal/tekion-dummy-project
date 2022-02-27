@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>Document</title>
 </head>
 <body>
@@ -83,7 +84,7 @@
     </div>
     <!-- main page -->
     <div class="main-box">
-        <div class="flex-container-row-black-box">
+        <div class="flex-container-row-main-menu-box">
 
             <div class="main-box-parent2">
                 <div class="main-box-child1" id="side_menu_id">
@@ -104,11 +105,11 @@
                 <div style="font-size: 32px;font-weight:600">Recommended</div>
                 <div class="no-of-items">25 Items</div>
                 </div>
-                <div class="border">
+                <!-- <div class="border">
                     <div class="flex-container-row main-box-parent1 "> 
                         <div class="child-2-1">
                             <div><i class="fa-solid fa-circle header-icon"></i></div>
-                            <div class="name-of-dish">Veg Platter</div>
+                            <div class="name-of-dish">veg paltter</div>
                             <div class="price">Rs. 699</div>
                             <div class="desciption-of-dish">Feel like a Nawab with this one, soft cubes of paneer cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.</div>
                         </div>
@@ -117,13 +118,13 @@
                             <div class="add">ADD</div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="border">
+                <!-- <div class="border">
                     <div class="flex-container-row main-box-parent1 "> 
                         <div class="child-2-1">
                             <div><i class="fa-solid fa-circle header-icon"></i></div>
-                            <div class="name-of-dish">Veg Platter</div>
+                            <div class="name-of-dish">veg platter</div>
                             <div class="price">Rs. 699</div>
                             <div class="desciption-of-dish">Feel like a Nawab with this one, soft cubes of paneer cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.</div>
                         </div>
@@ -132,37 +133,48 @@
                             <div class="add">ADD</div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="border">
+                <!-- <div class="border">
                     <div class="flex-container-row main-box-parent1 "> 
                         <div class="child-2-1">
                             <div><i class="fa-solid fa-circle header-icon"></i></div>
-                            <div class="name-of-dish">Veg Platter</div>
+                            <div class="name-of-dish">veg platter</div>
                             <div class="price">Rs. 699</div>
                             <div class="desciption-of-dish">Feel like a Nawab with this one, soft cubes of paneer cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.</div>
                         </div>
                         <div class="child-2-2"> 
                             <img src="./images/food.jpeg" alt="food-image" width="118px" height="96px" style="border-radius:6px"/>
-                            <div class="add">ADD</div>
+                            <div class="add">
+                                <div class="decrement-main-menu">-</div>
+                                <div class="item-quantity-main-menu">ADD</div>
+                                <div class="increment">+</div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="main-box-child3">
-            cart
+                <div>
+                    <div style="font-size: 32px;font-weight:600">CART</div>
+                    <div>from Box8-Desi Meals</div>
+                    <div class="no-of-items">1 Item</div>
+                </div>
+                <!-- <div class="cart-item-box">
+                    <div class="cart-icon-box"><img src="./images/non-veg.png" class="cart-icon"></img></div>
+                    <div class="cart-item-name"> Chcken tikka</div>
+                    <div class="cart-number-box">
+                            <div class="cart-decrement">-</div>
+                            <div class="cart-quantity">9</div>
+                            <div class="cart-increment">+</div>
+                    </div>
+                        <div class="cart-price">Rs 699</div>
+                </div> -->
+            
             </div>
         </div>
     </div>
     <script src="myScript.js"> </script>
-
-    <script type="text/javascript">
-       
-    window.onload= side_menu;
-    
-        
-    </script>
-
 
 </body>
 </html>
