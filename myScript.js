@@ -162,6 +162,7 @@ function totalBill(mystr,x){
         bill-=Number(sub_str);
         bill=Math.max(0,bill);
     }
+    $(".totla-bill-price").text("Rs. "+bill);
 
 }
 function itemQuantityChange(){
@@ -179,7 +180,7 @@ function itemQuantityChange(){
             if(count==1){
                 total_cart_count++;
                 let ele1=$("<div></div>").addClass("cart-item-box");
-                $(".main-box-child3").append(ele1);
+                $(".cart-item-big-box").append(ele1);
                 let ele2=$("<div></div>").addClass("cart-icon-box");
                 ele1.append(ele2);
                 console.log(addItem[i].parentElement.parentElement.previousElementSibling);
@@ -219,7 +220,7 @@ function itemQuantityChange(){
                         let final_ele=cartItem[j].previousElementSibling;
                 
                         $(final_ele).text(count);
-                        // totalBill($(final_ele).children().eq(2).text(),1); 
+                        totalBill($(pare).children().eq(2).text(),1); 
 
                     }
                 }
@@ -244,15 +245,17 @@ function itemQuantityChange(){
                 const cartItem = document.getElementsByClassName('cart-decrement');
                
                 for(let j=0;j<cartItem.length;j++){
-                    total_cart_count--;
+                    
                     console.log(total_cart_count+"sainya");
                     let cartEle=cartItem[j].parentElement.parentElement;
                     if($(pare).children().eq(1).text()== $(cartEle).children().eq(1).text()){
+                        total_cart_count--;
                         let final_ele=cartItem[j].nextElementSibling;
                         if(count<=0)
                             $(cartEle).remove();
                         else
                             $(final_ele).text(count);
+                        totalBill($(pare).children().eq(2).text(),0); 
                     }
                  }
                  if(total_cart_count==1){
@@ -261,6 +264,7 @@ function itemQuantityChange(){
                  else{
                     $("#cart-no-of-items").text(total_cart_count+" Items");
                  }
+                 
            
             cartEmpty();
             

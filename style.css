@@ -289,8 +289,11 @@ position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 10%;
 }
-
+.cart-item-big-box{
+    margin-top: 15%;
+}
 .flex-container-row-main-menu-box {
     display: flex;
     flex-direction: row;
