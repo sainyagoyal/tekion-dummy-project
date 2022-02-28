@@ -36,7 +36,7 @@ main_menu_arr=[
         id:3,
         veg:false,
         price:699,
-        title:"Non-Veg Platter",
+        title:"chinese Platter",
         desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
         image:"./images/food.jpeg"
     },
@@ -68,7 +68,7 @@ main_menu_arr=[
         id:7,
         veg:false,
         price:699,
-        title:"Non-Veg Platter",
+        title:"shakes",
         desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
         image:"./images/food.jpeg"
     }
@@ -140,10 +140,35 @@ function main_menu(){
 
 const addItem = document.getElementsByClassName('increment-main-menu');
 const decrementItem = document.getElementsByClassName('decrement-main-menu');
+let total_cart_count=0;
+let bill=0;
+
+function cartEmpty(){
+    if(total_cart_count==0){
+        $(".cart-empty").show();
+        $(".bill").hide();
+    }
+    else{
+        $(".cart-empty").hide();
+        $(".bill").show();
+    }
+}
+function totalBill(mystr,x){
+    sub_str=mystr.split(" ")[1];
+    if(x==1){
+        bill+=Number(sub_str);
+    }
+    else {
+        bill-=Number(sub_str);
+        bill=Math.max(0,bill);
+    }
+
+}
 function itemQuantityChange(){
-   
+    cartEmpty();
     for(let i=0;i<addItem.length;i++){
         let count=0;
+        
         addItem[i].addEventListener('click', function() {
             const div = this.previousElementSibling;
             
@@ -152,6 +177,7 @@ function itemQuantityChange(){
             count++;
             div.innerText=count;
             if(count==1){
+                total_cart_count++;
                 let ele1=$("<div></div>").addClass("cart-item-box");
                 $(".main-box-child3").append(ele1);
                 let ele2=$("<div></div>").addClass("cart-icon-box");
@@ -178,9 +204,13 @@ function itemQuantityChange(){
                 ele5.append(ele5_3);
 
                 let ele6=$("<div></div>").addClass("cart-price").text($(pare).children().eq(2).text());
-                ele1.append(ele6);  
+                ele1.append(ele6); 
+                totalBill($(pare).children().eq(2).text(),1); 
+                $("#cart-no-of-items").text(total_cart_count+" Item");
             }
             else{
+                total_cart_count++;
+                
                 const cartItem = document.getElementsByClassName('cart-increment');
                
                 for(let j=0;j<cartItem.length;j++){
@@ -189,15 +219,21 @@ function itemQuantityChange(){
                         let final_ele=cartItem[j].previousElementSibling;
                 
                         $(final_ele).text(count);
+                        // totalBill($(final_ele).children().eq(2).text(),1); 
+
                     }
                 }
+                $("#cart-no-of-items").text(total_cart_count+" Item");
 
             }
+            
+         cartEmpty();
             
         })
         decrementItem[i].addEventListener('click',function(){
             const div=this.nextElementSibling;
             count--;
+          
             count=Math.max(count,0);
             let pare=addItem[i].parentElement.parentElement.previousElementSibling;
             if(count<=0)
@@ -208,6 +244,8 @@ function itemQuantityChange(){
                 const cartItem = document.getElementsByClassName('cart-decrement');
                
                 for(let j=0;j<cartItem.length;j++){
+                    total_cart_count--;
+                    console.log(total_cart_count+"sainya");
                     let cartEle=cartItem[j].parentElement.parentElement;
                     if($(pare).children().eq(1).text()== $(cartEle).children().eq(1).text()){
                         let final_ele=cartItem[j].nextElementSibling;
@@ -216,9 +254,22 @@ function itemQuantityChange(){
                         else
                             $(final_ele).text(count);
                     }
-                }
+                 }
+                 if(total_cart_count==1){
+                 $("#cart-no-of-items").text(total_cart_count+" Item");
+                 }
+                 else{
+                    $("#cart-no-of-items").text(total_cart_count+" Items");
+                 }
+           
+            cartEmpty();
+            
+
         })
+
+
     }
+
 }
 
 
