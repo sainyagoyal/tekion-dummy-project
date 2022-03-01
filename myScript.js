@@ -89,15 +89,17 @@ function main_menu(){
         if(main_menu_arr[x].veg==true){
              item10=$('<img/>',{
                 src:vegIcon,
-                alt:'icon',
-                class:'header-icon'
+                alt:'veg',
+                class:'header-icon',
+                dataVal:'veg'
             })
         }
         else {
             item10=$('<img/>',{
                 src:nonVegIcon,
                 alt:'icon',
-                class:'header-icon'
+                class:'header-icon',
+                dataVal:'nonVeg'
             })
         }
         item3.append(item10);
@@ -138,8 +140,7 @@ function main_menu(){
     }
 }
 
-const addItem = document.getElementsByClassName('increment-main-menu');
-const decrementItem = document.getElementsByClassName('decrement-main-menu');
+
 let total_cart_count=0;
 let bill=0;
 
@@ -162,9 +163,12 @@ function totalBill(mystr,x){
         bill-=Number(sub_str);
         bill=Math.max(0,bill);
     }
+    $(".totla-bill-price").text("Rs. "+bill);
 
 }
 function itemQuantityChange(){
+    const addItem = document.getElementsByClassName('increment-main-menu');
+    const decrementItem = document.getElementsByClassName('decrement-main-menu');
     cartEmpty();
     for(let i=0;i<addItem.length;i++){
         let count=0;
@@ -179,15 +183,17 @@ function itemQuantityChange(){
             if(count==1){
                 total_cart_count++;
                 let ele1=$("<div></div>").addClass("cart-item-box");
-                $(".main-box-child3").append(ele1);
+                $(".cart-item-big-box").append(ele1);
                 let ele2=$("<div></div>").addClass("cart-icon-box");
                 ele1.append(ele2);
                 console.log(addItem[i].parentElement.parentElement.previousElementSibling);
                 let ele3=$('<img/>',{
                     class:'cart-icon',
                     src:$(pare.firstChild).attr('src'),
-                    alt:'food-image'
+                    alt:'food-image',
+                    dataVal:$(pare.firstChild).attr('dataVal')
                 });
+                
                 ele2.append(ele3);
                 
                 let ele4=$("<div></div>").addClass("cart-item-name").text($(pare).children().eq(1).text());
@@ -219,11 +225,11 @@ function itemQuantityChange(){
                         let final_ele=cartItem[j].previousElementSibling;
                 
                         $(final_ele).text(count);
-                        // totalBill($(final_ele).children().eq(2).text(),1); 
+                        totalBill($(pare).children().eq(2).text(),1); 
 
                     }
                 }
-                $("#cart-no-of-items").text(total_cart_count+" Item");
+                $("#cart-no-of-items").text(total_cart_count+" Items");
 
             }
             
@@ -244,15 +250,17 @@ function itemQuantityChange(){
                 const cartItem = document.getElementsByClassName('cart-decrement');
                
                 for(let j=0;j<cartItem.length;j++){
-                    total_cart_count--;
+                    
                     console.log(total_cart_count+"sainya");
                     let cartEle=cartItem[j].parentElement.parentElement;
                     if($(pare).children().eq(1).text()== $(cartEle).children().eq(1).text()){
+                        total_cart_count--;
                         let final_ele=cartItem[j].nextElementSibling;
                         if(count<=0)
                             $(cartEle).remove();
                         else
                             $(final_ele).text(count);
+                        totalBill($(pare).children().eq(2).text(),0); 
                     }
                  }
                  if(total_cart_count==1){
@@ -261,6 +269,7 @@ function itemQuantityChange(){
                  else{
                     $("#cart-no-of-items").text(total_cart_count+" Items");
                  }
+                 
            
             cartEmpty();
             
@@ -272,9 +281,59 @@ function itemQuantityChange(){
 
 }
 
+function vegOnly(){
+    let ele=document.getElementById('vegonly');
+    ele.addEventListener('click',function(){
+        
+    
+    let main_menu_elements=document.getElementsByClassName('border');
+    
+    if(ele.checked){
+        for(i=0;i<main_menu_elements.length;i++){
+            let image_ele=$(main_menu_elements[i]).children().children("div.child-2-1").children("img.header-icon");
+            if(image_ele.attr('dataVal')=="nonVeg"){
+               $(main_menu_elements[i]).hide();
+           }    
+        }
+        
+        
+    }
+    else{
+        for(i=0;i<main_menu_elements.length;i++){
+        
+               $(main_menu_elements[i]).show();
+               
+        }
+    }
+    })
+    
+}
+
+function searchFilter(){
+   let ele=document.getElementById('search-filter');
+   ele.addEventListener('input',function(){
+    let itemList=document.getElementsByClassName('border');
+    for(i=0;i<itemList.length;i++){
+        let itemName=$(itemList[i]).children().children("div.child-2-1").children("div.name-of-dish").text();
+        if(itemName.toLowerCase().includes(ele.value.toLowerCase())){
+            $(itemList[i]).show();
+        }
+        else{
+            $(itemList[i]).hide();
+        }
+    }
+})
+   
+}
+
+
 
 $(document).ready(function(){
     side_menu();
     main_menu();
+    vegOnly();
     itemQuantityChange();
+    searchFilter();
+  
 });
+

@@ -65,8 +65,14 @@
                     </div>
                 </div>
                 <div class="flex-container-row">
-                    <div class="search-fav-veg" style="width:254px"><input class="input-class" type="text" placeholder="Search for dishes.."></div>
-                    <div class="search-fav-veg">Veg only</div>
+                    <div class="search-fav-veg" style="width:254px">
+                        <input class="input-class" id="search-filter" type="text" placeholder="Search for dishes..">
+                    </div>
+                    <div class="search-fav-veg">
+                        <input type="checkbox" id="vegonly" name="vegonly" value="vegonly">
+                        <label for="vegonly">Veg only</label> 
+                       
+                    </div>
                     <div class="search-fav-veg">Favourite</div>
                 </div>
             </div>
@@ -164,6 +170,9 @@
                 <div class="cart-empty">
                     cart is empty
                 </div>
+                <div class="cart-item-big-box">
+
+                </div>
                 <!-- <div class="cart-item-box">
                     <div class="cart-icon-box"><img src="./images/non-veg.png" class="cart-icon"></img></div>
                     <div class="cart-item-name"> Chcken tikka</div>
@@ -179,12 +188,12 @@
                         <div class="Subtotal">
                             Subtotal
                         </div>
-                        <div>
+                        <div class="totla-bill-price">
                             Rs699
                         </div>
                     </div>
                     <div>
-                     <button class="checkout-button"> CHECKOUT</button>
+                     <button class="checkout-button" id="checkout-button"> CHECKOUT</button>
                     </div>
                     
                 </div>
