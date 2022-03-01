@@ -289,7 +289,7 @@ position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 10%;
+    margin-bottom: 10%s;
 }
 .cart-item-big-box{
     margin-top: 15%;
@@ -355,4 +355,7 @@ position: relative;
   }
   .bill{
       margin-top: 15%;
+  }
+  .input-class:focus{
+      outline: none;
   }

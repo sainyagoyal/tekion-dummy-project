@@ -89,15 +89,17 @@ function main_menu(){
         if(main_menu_arr[x].veg==true){
              item10=$('<img/>',{
                 src:vegIcon,
-                alt:'icon',
-                class:'header-icon'
+                alt:'veg',
+                class:'header-icon',
+                dataVal:'veg'
             })
         }
         else {
             item10=$('<img/>',{
                 src:nonVegIcon,
                 alt:'icon',
-                class:'header-icon'
+                class:'header-icon',
+                dataVal:'nonVeg'
             })
         }
         item3.append(item10);
@@ -138,8 +140,7 @@ function main_menu(){
     }
 }
 
-const addItem = document.getElementsByClassName('increment-main-menu');
-const decrementItem = document.getElementsByClassName('decrement-main-menu');
+
 let total_cart_count=0;
 let bill=0;
 
@@ -166,6 +167,8 @@ function totalBill(mystr,x){
 
 }
 function itemQuantityChange(){
+    const addItem = document.getElementsByClassName('increment-main-menu');
+    const decrementItem = document.getElementsByClassName('decrement-main-menu');
     cartEmpty();
     for(let i=0;i<addItem.length;i++){
         let count=0;
@@ -224,7 +227,7 @@ function itemQuantityChange(){
 
                     }
                 }
-                $("#cart-no-of-items").text(total_cart_count+" Item");
+                $("#cart-no-of-items").text(total_cart_count+" Items");
 
             }
             
@@ -276,9 +279,43 @@ function itemQuantityChange(){
 
 }
 
+function vegOnly(){
+    let ele=document.getElementById('vegonly');
+    ele.addEventListener('click',function(){
+        
+    
+    let main_menu_elements=document.getElementsByClassName('border');
+    
+    if(ele.checked){
+        for(i=0;i<main_menu_elements.length;i++){
+            let image_ele=$(main_menu_elements[i]).children().children("div.child-2-1").children("img.header-icon");
+            if(image_ele.attr('dataVal')=="nonVeg"){
+               $(main_menu_elements[i]).hide();
+           }    
+        }
+        
+        
+    }
+    else{
+        for(i=0;i<main_menu_elements.length;i++){
+        
+               $(main_menu_elements[i]).show();
+               
+        }
+    }
+    })
+    
+}
+
+function search(){
+
+}
+
 
 $(document).ready(function(){
     side_menu();
     main_menu();
+    vegOnly();
     itemQuantityChange();
 });
+
