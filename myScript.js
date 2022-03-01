@@ -190,8 +190,10 @@ function itemQuantityChange(){
                 let ele3=$('<img/>',{
                     class:'cart-icon',
                     src:$(pare.firstChild).attr('src'),
-                    alt:'food-image'
+                    alt:'food-image',
+                    dataVal:$(pare.firstChild).attr('dataVal')
                 });
+                
                 ele2.append(ele3);
                 
                 let ele4=$("<div></div>").addClass("cart-item-name").text($(pare).children().eq(1).text());
@@ -307,9 +309,23 @@ function vegOnly(){
     
 }
 
-function search(){
-
+function searchFilter(){
+   let ele=document.getElementById('search-filter');
+   ele.addEventListener('input',function(){
+    let itemList=document.getElementsByClassName('border');
+    for(i=0;i<itemList.length;i++){
+        let itemName=$(itemList[i]).children().children("div.child-2-1").children("div.name-of-dish").text();
+        if(itemName.toLowerCase().includes(ele.value.toLowerCase())){
+            $(itemList[i]).show();
+        }
+        else{
+            $(itemList[i]).hide();
+        }
+    }
+})
+   
 }
+
 
 
 $(document).ready(function(){
@@ -317,5 +333,7 @@ $(document).ready(function(){
     main_menu();
     vegOnly();
     itemQuantityChange();
+    searchFilter();
+  
 });
 
