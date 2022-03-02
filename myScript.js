@@ -76,18 +76,18 @@ main_menu_arr=[
 
 function main_menu(){
     for(let x in main_menu_arr){
-        let item=$("<div></div>").addClass("border")
-        $(".main-box-child2").append(item);
+        let main_menu_item=$("<div></div>").addClass("border")
+        $(".main-box-child2").append(main_menu_item);
 
-        let item2=$("<div></div>").addClass("flex-container-row main-box-parent1")
-        item.append(item2);
+        let main_menu_item2=$("<div></div>").addClass("flex-container-row main-box-parent1")
+        main_menu_item.append(main_menu_item2);
 
-        let item3=$("<div></div>").addClass("child-2-1")
-        item2.append(item3);
+        let main_menu_item3=$("<div></div>").addClass("child-2-1")
+        main_menu_item2.append(main_menu_item3);
 
-        var item10;
+        var main_menu_img_veg_nonVeg;
         if(main_menu_arr[x].veg==true){
-             item10=$('<img/>',{
+             main_menu_img_veg_nonVeg=$('<img/>',{
                 src:vegIcon,
                 alt:'veg',
                 class:'header-icon',
@@ -95,45 +95,45 @@ function main_menu(){
             })
         }
         else {
-            item10=$('<img/>',{
+            main_menu_img_veg_nonVeg=$('<img/>',{
                 src:nonVegIcon,
                 alt:'icon',
                 class:'header-icon',
                 dataVal:'nonVeg'
             })
         }
-        item3.append(item10);
+        main_menu_item3.append(main_menu_img_veg_nonVeg);
 
-        let item4=$("<div></div>").addClass("name-of-dish").text(main_menu_arr[x].title);
-        item3.append(item4);
+        let itemName=$("<div></div>").addClass("name-of-dish").text(main_menu_arr[x].title);
+        main_menu_item3.append(itemName);
 
-        let item5=$("<div></div>").addClass("price").text("Rs. "+ main_menu_arr[x].price);
-        item3.append(item5);
+        let itemPrice=$("<div></div>").addClass("price").text("Rs. "+ main_menu_arr[x].price);
+        main_menu_item3.append(itemPrice);
 
-        let item6=$("<div></div>").addClass("desciption-of-dish").text(main_menu_arr[x].desc);
-        item3.append(item6);
+        let itemDesc=$("<div></div>").addClass("desciption-of-dish").text(main_menu_arr[x].desc);
+        main_menu_item3.append(itemDesc);
 
-        let item7=$("<div></div>").addClass("child-2-2")
-        item2.append(item7);
+        let main_menu_item4=$("<div></div>").addClass("child-2-2")
+        main_menu_item2.append(main_menu_item4);
         
-        let item8=$('<img/>',{
+        let itemImage=$('<img/>',{
             class:'image-main-menu',
             src:main_menu_arr[x].image,
             alt:'food-image'
         });
-        item7.append(item8)
+        main_menu_item4.append(itemImage)
 
         let item9=$("<div></div>").addClass("add");
-        item7.append(item9);
+        main_menu_item4.append(item9);
         
-        let item11=$("<div></div>").addClass("decrement-main-menu").text("-");
-        item9.append(item11);
+        let itemQuantityDecrement=$("<div></div>").addClass("decrement-main-menu").text("-");
+        item9.append(itemQuantityDecrement);
 
-        let item12=$("<div></div>").addClass("item-quantity-main-menu").text("ADD");
-        item9.append(item12);
+        let itemQuantity=$("<div></div>").addClass("item-quantity-main-menu").text("ADD");
+        item9.append(itemQuantity);
         
-        let item13=$("<div></div>").addClass("increment-main-menu").text("+");
-        item9.append(item13);
+        let itemQuantityIncrement=$("<div></div>").addClass("increment-main-menu").text("+");
+        item9.append(itemQuantityIncrement);
         
     
         
@@ -184,33 +184,33 @@ function itemQuantityChange(){
                 total_cart_count++;
                 let ele1=$("<div></div>").addClass("cart-item-box");
                 $(".cart-item-big-box").append(ele1);
-                let ele2=$("<div></div>").addClass("cart-icon-box");
-                ele1.append(ele2);
-                console.log(addItem[i].parentElement.parentElement.previousElementSibling);
-                let ele3=$('<img/>',{
+                let cart_itemIcon=$("<div></div>").addClass("cart-icon-box");
+                ele1.append(cart_itemIcon);
+   
+                let cart_item_vegNonveg=$('<img/>',{
                     class:'cart-icon',
                     src:$(pare.firstChild).attr('src'),
                     alt:'food-image',
                     dataVal:$(pare.firstChild).attr('dataVal')
                 });
                 
-                ele2.append(ele3);
+                cart_itemIcon.append(cart_item_vegNonveg);
                 
-                let ele4=$("<div></div>").addClass("cart-item-name").text($(pare).children().eq(1).text());
-                ele1.append(ele4);
+                let cart_itemName=$("<div></div>").addClass("cart-item-name").text($(pare).children().eq(1).text());
+                ele1.append(cart_itemName);
 
                 let ele5=$("<div></div>").addClass("cart-number-box");
                 ele1.append(ele5);
 
-                let ele5_1=$("<div></div>").addClass("cart-decrement").text("-");
-                ele5.append(ele5_1);
-                let ele5_2=$("<div></div>").addClass("cart-quantity").text("1");
-                ele5.append(ele5_2);
-                let ele5_3=$("<div></div>").addClass("cart-increment").text("+");
-                ele5.append(ele5_3);
+                let cart_itemDecrement=$("<div></div>").addClass("cart-decrement").text("-");
+                ele5.append(cart_itemDecrement);
+                let cart_itemQuantity=$("<div></div>").addClass("cart-quantity").text("1");
+                ele5.append(cart_itemQuantity);
+                let cart_itemIncrement=$("<div></div>").addClass("cart-increment").text("+");
+                ele5.append(cart_itemIncrement);
 
-                let ele6=$("<div></div>").addClass("cart-price").text($(pare).children().eq(2).text());
-                ele1.append(ele6); 
+                let cart_itemPrice=$("<div></div>").addClass("cart-price").text($(pare).children().eq(2).text());
+                ele1.append(cart_itemPrice); 
                 totalBill($(pare).children().eq(2).text(),1); 
                 $("#cart-no-of-items").text(total_cart_count+" Item");
             }
