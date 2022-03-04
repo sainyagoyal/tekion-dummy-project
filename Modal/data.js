@@ -1,6 +1,6 @@
-side_menu_arr=['Recommended','Platters','Starters','Thalis','Rice bowls'];
+const side_menu_arr=['Recommended','Platters','Starters','Thalis','Rice bowls'];
 
-main_menu_arr=[
+const main_menu_arr=[
     {
         id:1,
         veg:true,
@@ -57,4 +57,9 @@ main_menu_arr=[
         desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
         image:"./images/food.jpeg"
     }
-]
+];
+
+
+export {side_menu_arr ,main_menu_arr};
+
+
