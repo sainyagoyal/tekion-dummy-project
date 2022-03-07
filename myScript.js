@@ -1,6 +1,9 @@
-// side_menu_arr=['Recommended','Platters','Starters','Thalis','Rice bowls'];
-import { side_menu_arr } from "./Modal/data.js";
-import { main_menu_arr } from "./Modal/data.js";
+
+import { side_menu_arr } from "./Modal/data.mjs";
+import { main_menu_arr } from "./Modal/data.mjs";
+import {nonVegIcon} from "./Modal/data.mjs";
+import {vegIcon} from "./Modal/data.mjs";
+
 
 function side_menu(){
     for (let x in side_menu_arr){
@@ -13,67 +16,6 @@ function side_menu(){
     }
     
 }
-const nonVegIcon="./images/non-veg.png";
-const vegIcon="./images/veg.png";
-
-// main_menu_arr=[
-//     {
-//         id:1,
-//         veg:true,
-//         price:399,
-//         title:"Veg Platter",
-//         desc:"Feel like a Nawab with this one, soft cubes of paneer cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
-//         image:"./images/food.jpeg"
-//     },
-//     {
-//         id:2,
-//         veg:false,
-//         price:699,
-//         title:"Non-Veg Platter",
-//         desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
-//         image:"./images/food.jpeg"
-//     },
-//     {
-//         id:3,
-//         veg:false,
-//         price:699,
-//         title:"chinese Platter",
-//         desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
-//         image:"./images/food.jpeg"
-//     },
-//     {
-//         id:4,
-//         veg:true,
-//         price:69,
-//         title:"ice-cream",
-//         desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
-//         image:"./images/food.jpeg"
-//     },
-//     {
-//         id:5,
-//         veg:true,
-//         price:99,
-//         title:"waffles",
-//         desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
-//         image:"./images/food.jpeg"
-//     },
-//     {
-//         id:6,
-//         veg:false,
-//         price:799,
-//         title:"Bowl",
-//         desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
-//         image:"./images/food.jpeg"
-//     },
-//     {
-//         id:7,
-//         veg:false,
-//         price:699,
-//         title:"shakes",
-//         desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
-//         image:"./images/food.jpeg"
-//     }
-// ]
 
 function main_menu(){
     for(let x in main_menu_arr){

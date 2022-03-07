@@ -59,7 +59,10 @@ const main_menu_arr=[
     }
 ];
 
+const nonVegIcon="./images/non-veg.png";
+const vegIcon="./images/veg.png";
+console.log("data.js");
 
-export {side_menu_arr ,main_menu_arr};
+export {side_menu_arr,main_menu_arr,nonVegIcon,vegIcon};
 
 
